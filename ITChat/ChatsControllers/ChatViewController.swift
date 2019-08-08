@@ -207,9 +207,10 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         let camera = Camera(delegate_: self)
         
         let optionMenu = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        
         // add 4 optionMenu
         let takePhotoOrVideo = UIAlertAction(title: "Camera", style: .default) { (action) in
-//            camera.PresentMultyCamera(target: self, canEdit: false)
+            camera.PresentMultyCamera(target: self, canEdit: false)
         }
         
         let sharePhoto = UIAlertAction(title: "Photo Library", style: .default) { (action) in
@@ -219,7 +220,7 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         
         let shareVideo = UIAlertAction(title: "Video Library", style: .default) { (action) in
             
-//            camera.PresentVideoLibrary(target: self, canEdit: false)
+            camera.PresentVideoLibrary(target: self, canEdit: false)
         }
         
         let shareLocation = UIAlertAction(title: "Share Location", style: .default) { (action) in
@@ -284,6 +285,64 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         self.collectionView.reloadData()
     }
     
+    //MARK : - didTapMessageBubbleAt
+    override func collectionView(_ collectionView: JSQMessagesCollectionView!, didTapMessageBubbleAt indexPath: IndexPath!) {
+        
+        let messageDictionary = objectMessages[indexPath.row]
+        let messageType = messageDictionary[kTYPE] as! String
+        
+        switch messageType {
+        case kPICTURE:
+            
+            let message = messages[indexPath.row]
+            
+            let mediaItem = message.media as! JSQPhotoMediaItem
+            
+            let photos = IDMPhoto.photos(withImages: [mediaItem.image])
+            let browser = IDMPhotoBrowser(photos: photos)
+            
+            self.present(browser!, animated: true, completion: nil)
+            
+        case kLOCATION:
+            
+            print("tap location\(kLOCATION)")
+
+//            let message = messages[indexPath.row]
+//
+//            let mediaItem = message.media as! JSQLocationMediaItem
+//
+//            let mapView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
+//
+//            mapView.location = mediaItem.location
+//
+//            self.navigationController?.pushViewController(mapView, animated: true)
+            
+        case kVIDEO:
+            
+            let message = messages[indexPath.row]
+            
+            let mediaItem = message.media as! VideoMessage
+            
+            let player = AVPlayer(url: mediaItem.fileURL! as URL)
+            let moviewPlayer = AVPlayerViewController()
+            
+            let session = AVAudioSession.sharedInstance()
+            
+            try! session.setCategory(.playAndRecord, mode: .default, options: .defaultToSpeaker)
+            
+            moviewPlayer.player = player
+            
+            self.present(moviewPlayer, animated: true) {
+                moviewPlayer.player!.play()
+            }
+            
+        default:
+            print("unkown mess tapped")
+            
+        }
+        
+    }
+    
     
     
     //MARK: Send Messages Method
@@ -318,10 +377,6 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
             return
         }
         
-        JSQSystemSoundPlayer.jsq_playMessageSentSound()
-        self.finishSendingMessage()
-        outgoingMessage!.sendMessage(chatRoomId: chatRoomId, messageDictionary: outgoingMessage!.messageDictionary, memberIds: memberIds, membersToPush: membersToPush)
-        
         
         //Send video
         if let video = video {
@@ -334,9 +389,10 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
                 
                 if videoLink != nil {
                     
-                    let ecryptedText = Encryption.encryptText(chatRoomId: self.chatRoomId, message: "[\(kVIDEO)]")
+                    let text = kVIDEO
+//                    let ecryptedText = Encryption.encryptText(chatRoomId: self.chatRoomId, message: "[\(kVIDEO)]")
                     
-                    outgoingMessage = OutgoingMessage(message: ecryptedText, video: videoLink!, thumbNail: dataThumbnail! as NSData, senderId: currentUser.objectId, senderName: currentUser.firstname, date: date, status: kDELIVERED, type: kVIDEO)
+                    outgoingMessage = OutgoingMessage(message: text, video: videoLink!, thumbNail: dataThumbnail! as NSData, senderId: currentUser.objectId, senderName: currentUser.firstname, date: date, status: kDELIVERED, type: kVIDEO)
                     
                     JSQSystemSoundPlayer.jsq_playMessageSentSound()
                     self.finishSendingMessage()
@@ -347,6 +403,11 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
             }
             return
         }
+        
+        JSQSystemSoundPlayer.jsq_playMessageSentSound()
+        self.finishSendingMessage()
+        
+        outgoingMessage?.sendMessage(chatRoomId: self.chatRoomId, messageDictionary: outgoingMessage!.messageDictionary, memberIds: self.memberIds, membersToPush: self.membersToPush)
     }
     
 

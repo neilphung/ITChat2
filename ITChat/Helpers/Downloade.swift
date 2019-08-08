@@ -156,6 +156,51 @@ func uploadVideo(video: NSData, chatRoomId: String, view: UIView, completion: @e
         progressHUD.progress = Float((snapshot.progress?.completedUnitCount)!) / Float((snapshot.progress?.totalUnitCount)!)
     }
 }
+//MARK : Download video  
+func downloadVideo(videoUrl: String, completion: @escaping(_ isReadyToPlay: Bool, _ videoFileName: String) -> Void) {
+    
+    let videoURL = NSURL(string: videoUrl)
+    
+    let videoFileName = (videoUrl.components(separatedBy: "%").last!).components(separatedBy: "?").first!
+    
+    
+    if fileExistsAtPath(path: videoFileName) {
+        
+        //exist
+        completion(true, videoFileName)
+        
+    } else {
+        //doesnt exist
+        
+        let downloadQueue = DispatchQueue(label: "videoDownloadQueue")
+        
+        downloadQueue.async {
+            
+            let data = NSData(contentsOf: videoURL! as URL)
+            
+            if data != nil {
+                
+                var docURL = getDocumentsURL()
+                
+                docURL = docURL.appendingPathComponent(videoFileName, isDirectory: false)
+                
+                data!.write(to: docURL, atomically: true)
+                
+                
+                DispatchQueue.main.async {
+                    completion(true, videoFileName)
+                }
+                
+            } else {
+                //need to call completion and return nil if no file is available
+                DispatchQueue.main.async {
+                    print("no video in database")
+                    
+                }
+            }
+        }
+    }
+}
 
 
 //MARK: - Helper Methods
