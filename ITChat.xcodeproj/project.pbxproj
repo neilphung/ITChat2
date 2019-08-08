@@ -12,6 +12,7 @@
 		BD0CC5FE22FBF9B200AE943B /* Downloade.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0CC5FD22FBF9B200AE943B /* Downloade.swift */; };
 		BD0CC60022FC059A00AE943B /* PhotoMediaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0CC5FF22FC059A00AE943B /* PhotoMediaItem.swift */; };
 		BD0CC60222FC1C1400AE943B /* VideoMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0CC60122FC1C1400AE943B /* VideoMessage.swift */; };
+		BD0FD9FF22FC6EA50039D9E6 /* AudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0FD9FE22FC6EA50039D9E6 /* AudioViewController.swift */; };
 		BD2956F322F51A3000E7988C /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2956F222F51A3000E7988C /* UserTableViewCell.swift */; };
 		BD2956F622F5242D00E7988C /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2956F522F5242D00E7988C /* UsersTableViewController.swift */; };
 		BD2956F822F53C2500E7988C /* ChatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2956F722F53C2500E7988C /* ChatsViewController.swift */; };
@@ -42,6 +43,7 @@
 		BD0CC5FD22FBF9B200AE943B /* Downloade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Downloade.swift; sourceTree = "<group>"; };
 		BD0CC5FF22FC059A00AE943B /* PhotoMediaItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoMediaItem.swift; sourceTree = "<group>"; };
 		BD0CC60122FC1C1400AE943B /* VideoMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoMessage.swift; sourceTree = "<group>"; };
+		BD0FD9FE22FC6EA50039D9E6 /* AudioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioViewController.swift; sourceTree = "<group>"; };
 		BD2956F222F51A3000E7988C /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		BD2956F522F5242D00E7988C /* UsersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
 		BD2956F722F53C2500E7988C /* ChatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsViewController.swift; sourceTree = "<group>"; };
@@ -192,6 +194,7 @@
 				BDF0F29222F722BB001C9D73 /* Recent.swift */,
 				BDEA471B22F90BC300505A65 /* OutgoingMessage.swift */,
 				BDEA471D22F9241500505A65 /* IncomingMessage.swift */,
+				BD0FD9FE22FC6EA50039D9E6 /* AudioViewController.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -339,6 +342,7 @@
 				BD0CC5FE22FBF9B200AE943B /* Downloade.swift in Sources */,
 				BDCC128022F3F8F8006FDA66 /* FinishRegistrationViewController.swift in Sources */,
 				BD2956F622F5242D00E7988C /* UsersTableViewController.swift in Sources */,
+				BD0FD9FF22FC6EA50039D9E6 /* AudioViewController.swift in Sources */,
 				BD4EB9FF22F8190900A8AFD0 /* ChatViewController.swift in Sources */,
 				BDF7696822F3DFEA00C04BB7 /* FirebaseUser.swift in Sources */,
 			);
