@@ -20,7 +20,7 @@ public let APP_STARTED_NOTIFICATION = "AppStartedNotification"
 
 
 //IDS and Keys
-public let kFILEREFERENCE = "gs://ichat-6dcc2.appspot.com"
+public let kFILEREFERENCE = "gs://itchat-5042d.appspot.com"
 public let kONESIGNALAPPID = "e9897977-b975-4c78-99f7-4c4fd9047aad"
 public let kSINCHKEY = "3bffb471-fcdc-45f4-86b8-4c164717bf75"
 public let kSINCHSECRET = "3UHluLoaZU+fcrGRHr2wfw=="

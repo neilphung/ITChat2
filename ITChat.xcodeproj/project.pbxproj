@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		BD03105722F7C31500613847 /* RecentChatsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD03105622F7C31500613847 /* RecentChatsTableViewCell.swift */; };
+		BD0CC5FC22FBF44900AE943B /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0CC5FB22FBF44900AE943B /* Camera.swift */; };
+		BD0CC5FE22FBF9B200AE943B /* Downloade.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0CC5FD22FBF9B200AE943B /* Downloade.swift */; };
+		BD0CC60022FC059A00AE943B /* PhotoMediaItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD0CC5FF22FC059A00AE943B /* PhotoMediaItem.swift */; };
 		BD2956F322F51A3000E7988C /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2956F222F51A3000E7988C /* UserTableViewCell.swift */; };
 		BD2956F622F5242D00E7988C /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2956F522F5242D00E7988C /* UsersTableViewController.swift */; };
 		BD2956F822F53C2500E7988C /* ChatsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD2956F722F53C2500E7988C /* ChatsViewController.swift */; };
@@ -34,6 +37,9 @@
 /* Begin PBXFileReference section */
 		93196D687D9829389EB481A6 /* Pods-ITChat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ITChat.release.xcconfig"; path = "Target Support Files/Pods-ITChat/Pods-ITChat.release.xcconfig"; sourceTree = "<group>"; };
 		BD03105622F7C31500613847 /* RecentChatsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecentChatsTableViewCell.swift; sourceTree = "<group>"; };
+		BD0CC5FB22FBF44900AE943B /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
+		BD0CC5FD22FBF9B200AE943B /* Downloade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Downloade.swift; sourceTree = "<group>"; };
+		BD0CC5FF22FC059A00AE943B /* PhotoMediaItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoMediaItem.swift; sourceTree = "<group>"; };
 		BD2956F222F51A3000E7988C /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		BD2956F522F5242D00E7988C /* UsersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
 		BD2956F722F53C2500E7988C /* ChatsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsViewController.swift; sourceTree = "<group>"; };
@@ -160,6 +166,9 @@
 				BDF7695D22F3DD4600C04BB7 /* HelperMethod.swift */,
 				BDF7695F22F3DDDA00C04BB7 /* Constans.swift */,
 				BDF7696122F3DE2000C04BB7 /* CollectionReference.swift */,
+				BD0CC5FB22FBF44900AE943B /* Camera.swift */,
+				BD0CC5FD22FBF9B200AE943B /* Downloade.swift */,
+				BD0CC5FF22FC059A00AE943B /* PhotoMediaItem.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -312,15 +321,18 @@
 				BDEA471C22F90BC300505A65 /* OutgoingMessage.swift in Sources */,
 				BDCC128422F429B2006FDA66 /* SettingTableViewController.swift in Sources */,
 				BDF0F29322F722BB001C9D73 /* Recent.swift in Sources */,
+				BD0CC60022FC059A00AE943B /* PhotoMediaItem.swift in Sources */,
 				BDEA471E22F9241500505A65 /* IncomingMessage.swift in Sources */,
 				BD2956F322F51A3000E7988C /* UserTableViewCell.swift in Sources */,
 				BDF7695E22F3DD4600C04BB7 /* HelperMethod.swift in Sources */,
 				BDA04BDE22F3C3AC00051966 /* AppDelegate.swift in Sources */,
+				BD0CC5FC22FBF44900AE943B /* Camera.swift in Sources */,
 				BDF7696022F3DDDA00C04BB7 /* Constans.swift in Sources */,
 				BDF7696222F3DE2000C04BB7 /* CollectionReference.swift in Sources */,
 				BD2956FD22F5649A00E7988C /* ProfileTableViewController.swift in Sources */,
 				BD2956F822F53C2500E7988C /* ChatsViewController.swift in Sources */,
 				BDA04BF222F3C4EF00051966 /* WelcomeViewController.swift in Sources */,
+				BD0CC5FE22FBF9B200AE943B /* Downloade.swift in Sources */,
 				BDCC128022F3F8F8006FDA66 /* FinishRegistrationViewController.swift in Sources */,
 				BD2956F622F5242D00E7988C /* UsersTableViewController.swift in Sources */,
 				BD4EB9FF22F8190900A8AFD0 /* ChatViewController.swift in Sources */,
