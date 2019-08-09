@@ -22,6 +22,7 @@
 		BDA04BE822F3C3AE00051966 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDA04BE622F3C3AE00051966 /* LaunchScreen.storyboard */; };
 		BDA04BF022F3C4B900051966 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BDA04BEF22F3C4B900051966 /* Main.storyboard */; };
 		BDA04BF222F3C4EF00051966 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDA04BF122F3C4EF00051966 /* WelcomeViewController.swift */; };
+		BDB7F1A922FD1781005B2AF7 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDB7F1A822FD1781005B2AF7 /* MapViewController.swift */; };
 		BDCC128022F3F8F8006FDA66 /* FinishRegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCC127F22F3F8F8006FDA66 /* FinishRegistrationViewController.swift */; };
 		BDCC128422F429B2006FDA66 /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDCC128322F429B2006FDA66 /* SettingTableViewController.swift */; };
 		BDEA471C22F90BC300505A65 /* OutgoingMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDEA471B22F90BC300505A65 /* OutgoingMessage.swift */; };
@@ -55,6 +56,7 @@
 		BDA04BE922F3C3AE00051966 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BDA04BEF22F3C4B900051966 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		BDA04BF122F3C4EF00051966 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		BDB7F1A822FD1781005B2AF7 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		BDCC127F22F3F8F8006FDA66 /* FinishRegistrationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishRegistrationViewController.swift; sourceTree = "<group>"; };
 		BDCC128322F429B2006FDA66 /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		BDEA471B22F90BC300505A65 /* OutgoingMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutgoingMessage.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 			children = (
 				BD2956F722F53C2500E7988C /* ChatsViewController.swift */,
 				BD4EB9FE22F8190900A8AFD0 /* ChatViewController.swift */,
+				BDB7F1A822FD1781005B2AF7 /* MapViewController.swift */,
 			);
 			path = ChatsControllers;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 				BDEA471E22F9241500505A65 /* IncomingMessage.swift in Sources */,
 				BD2956F322F51A3000E7988C /* UserTableViewCell.swift in Sources */,
 				BDF7695E22F3DD4600C04BB7 /* HelperMethod.swift in Sources */,
+				BDB7F1A922FD1781005B2AF7 /* MapViewController.swift in Sources */,
 				BDA04BDE22F3C3AC00051966 /* AppDelegate.swift in Sources */,
 				BD0CC5FC22FBF44900AE943B /* Camera.swift in Sources */,
 				BDF7696022F3DDDA00C04BB7 /* Constans.swift in Sources */,

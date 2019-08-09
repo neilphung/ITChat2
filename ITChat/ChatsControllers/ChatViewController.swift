@@ -18,6 +18,9 @@ import FirebaseFirestore
 
 class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, IQAudioRecorderViewControllerDelegate {
     
+    
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    
     var chatRoomId : String!
     var memberIds : [String]!
     var membersToPush: [String]!
@@ -225,9 +228,9 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         
         let shareLocation = UIAlertAction(title: "Share Location", style: .default) { (action) in
             
-//            if self.haveAccessToUserLocation() {
-//                self.sendMessage(text: nil, date: Date(), picture: nil, location: kLOCATION, video: nil, audio: nil)
-//            }
+            if self.haveAccessToUserLocation() {
+                self.sendMessage(text: nil, date: Date(), picture: nil, location: kLOCATION, video: nil, audio: nil)
+            }
         }
         
         
@@ -303,18 +306,16 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
             self.present(browser!, animated: true, completion: nil)
             
         case kLOCATION:
-            
-            print("tap location\(kLOCATION)")
 
-//            let message = messages[indexPath.row]
-//
-//            let mediaItem = message.media as! JSQLocationMediaItem
-//
-//            let mapView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
-//
-//            mapView.location = mediaItem.location
-//
-//            self.navigationController?.pushViewController(mapView, animated: true)
+            let message = messages[indexPath.row]
+
+            let mediaItem = message.media as! JSQLocationMediaItem
+
+            let mapView = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "MapViewController") as! MapViewController
+
+            mapView.location = mediaItem.location
+
+            self.navigationController?.pushViewController(mapView, animated: true)
             
         case kVIDEO:
             
@@ -423,6 +424,20 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
                 }
             }
             return
+        }
+        
+        //send location message
+        
+        //send location message
+        if location != nil {
+            
+            let lat: NSNumber = NSNumber(value: appDelegate.coordinates!.latitude)
+            let long: NSNumber = NSNumber(value: appDelegate.coordinates!.longitude)
+            
+//            let ecryptedText = Encryption.encryptText(chatRoomId: chatRoomId, message: "[\(kLOCATION)]")
+          let text = kLOCATION
+            
+            outgoingMessage = OutgoingMessage(message: text, latitude: lat, longitude: long, senderId: currentUser.objectId, senderName: currentUser.firstname, date: date, status: kDELIVERED, type: kLOCATION)
         }
         
         JSQSystemSoundPlayer.jsq_playMessageSentSound()
@@ -763,6 +778,16 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         sendMessage(text: nil, date: Date(), picture: picture, location: nil, video: video, audio: nil)
         
         picker.dismiss(animated: true, completion: nil)
+    }
+    
+    //MARK: Location access
+    func haveAccessToUserLocation() -> Bool {
+        if appDelegate.locationManager != nil {
+            return true
+        } else {
+            ProgressHUD.showError("Please give access tp loacation in Settings.")
+            return false
+        }
     }
     
     //MARK: - Helper method

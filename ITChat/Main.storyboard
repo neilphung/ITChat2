@@ -566,6 +566,35 @@
             </objects>
             <point key="canvasLocation" x="7181.6000000000004" y="-306.29685157421289"/>
         </scene>
+        <!--Map View Controller-->
+        <scene sceneID="2J9-H8-fEw">
+            <objects>
+                <viewController storyboardIdentifier="MapViewController" id="uUt-xI-lTX" customClass="MapViewController" customModule="ITChat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Wrk-hX-n1D">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="kLz-8s-EKO">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </mapView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="kLz-8s-EKO" firstAttribute="leading" secondItem="oIK-Bf-5D6" secondAttribute="leading" id="WcT-Sg-rug"/>
+                            <constraint firstItem="kLz-8s-EKO" firstAttribute="trailing" secondItem="oIK-Bf-5D6" secondAttribute="trailing" id="ldB-Bf-yfP"/>
+                            <constraint firstItem="kLz-8s-EKO" firstAttribute="top" secondItem="Wrk-hX-n1D" secondAttribute="top" id="sRz-dW-7wq"/>
+                            <constraint firstItem="kLz-8s-EKO" firstAttribute="bottom" secondItem="oIK-Bf-5D6" secondAttribute="bottom" id="u6e-wp-KIF"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="oIK-Bf-5D6"/>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="kLz-8s-EKO" id="Wi2-Uh-j67"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kdB-54-aDB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7962.3999999999996" y="-317.09145427286359"/>
+        </scene>
         <!--Item-->
         <scene sceneID="Jgv-9d-JLd">
             <objects>
