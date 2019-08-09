@@ -161,7 +161,7 @@ class ChatsViewController: UIViewController, UITableViewDelegate, UITableViewDat
         chatVC.memberIds = (recent[kMEMBERS] as? [String])!
         chatVC.membersToPush = (recent[kMEMBERSTOPUSH] as? [String])!
         chatVC.chatRoomId = (recent[kCHATROOMID] as? String)!
-        chatVC.titleChat = (recent[kWITHUSERFULLNAME] as? String)!
+        chatVC.titleName = (recent[kWITHUSERFULLNAME] as? String)!
         chatVC.isGroup = false
         //(recent[kTYPE] as! String) == kGROUP
         

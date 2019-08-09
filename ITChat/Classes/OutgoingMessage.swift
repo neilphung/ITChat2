@@ -47,29 +47,57 @@ class OutgoingMessage {
         
         messageDictionary = NSMutableDictionary(objects: [message, latitude, longitude, senderId, senderName, dateFormatter().string(from: date), status, type], forKeys: [kMESSAGE as NSCopying, kLATITUDE as NSCopying, kLONGITUDE as NSCopying, kSENDERID as NSCopying, kSENDERNAME as NSCopying, kDATE as NSCopying, kSTATUS as NSCopying, kTYPE as NSCopying])
     }
-
+    
+    
+    //MARK: SendMessage
+    
+    func sendMessage(chatRoomId: String, messageDictionary: NSMutableDictionary, memberIds: [String], membersToPush: [String]) {
         
-        //MARK: SendMessage
+        let messageId = UUID().uuidString
+        messageDictionary[kMESSAGEID] = messageId
         
-        func sendMessage(chatRoomId: String, messageDictionary: NSMutableDictionary, memberIds: [String], membersToPush: [String]) {
-            
-            let messageId = UUID().uuidString
-            messageDictionary[kMESSAGEID] = messageId
-            
-            for memberId in memberIds {
-                reference(.Message).document(memberId).collection(chatRoomId).document(messageId).setData(messageDictionary as! [String : Any])
-            }
-            
-//            updateRecents(chatRoomId: chatRoomID, lastMessage: messageDictionary[kMESSAGE] as! String)
-//
-//            let pushText = "[\(messageDictionary[kTYPE] as! String) message]"
-//
-//            sendPushNotification(memberToPush: membersToPush, message: pushText)
+        for memberId in memberIds {
+            reference(.Message).document(memberId).collection(chatRoomId).document(messageId).setData(messageDictionary as! [String : Any])
         }
         
-        //update recent chat
-        
-        //send push notifications
+        //            updateRecents(chatRoomId: chatRoomID, lastMessage: messageDictionary[kMESSAGE] as! String)
+        //
+        //            let pushText = "[\(messageDictionary[kTYPE] as! String) message]"
+        //
+        //            sendPushNotification(memberToPush: membersToPush, message: pushText)
     }
     
+    //update recent chat
+    
+    //send push notifications
+    
+    
+    
+    class func deleteMessage(withId: String, chatRoomId: String) {
+        reference(.Message).document(FirebaseUser.currentId()).collection(chatRoomId).document(withId).delete()
+    }
+    
+    class func updateMessage(withId: String, chatRoomId: String, memberIds: [String]) {
+        
+        let readDate = dateFormatter().string(from: Date())
+        
+        let values = [kSTATUS : kREAD, kREADDATE : readDate]
+        
+        for userId in memberIds {
+            
+            reference(.Message).document(userId).collection(chatRoomId).document(withId).getDocument { (snapshot, error) in
+                
+                guard let snapshot = snapshot  else { return }
+                
+                if snapshot.exists {
+                    
+                    reference(.Message).document(userId).collection(chatRoomId).document(withId).updateData(values)
+                }
+            }
+        }
+    }
+}
+
+
+
 
