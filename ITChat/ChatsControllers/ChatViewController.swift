@@ -101,6 +101,7 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         super.viewDidLoad()
         
         createTypingObserver()
+        
         loadUserDefaults()
         
         JSQMessagesCollectionViewCell.registerMenuAction(#selector(delete))
@@ -778,14 +779,14 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         self.navigationController?.popViewController(animated: true)
     }
     
-//    @objc func infoButtonPressed() {
-//
-//        let mediaVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mediaView") as! PicturesCollectionViewController
-//
-//        mediaVC.allImageLinks = allPictureMessages
-//
-//        self.navigationController?.pushViewController(mediaVC, animated: true)
-//    }
+    @objc func infoButtonPressed() {
+
+        let mediaVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "picturesView") as! PicturesCollectionViewController
+
+        mediaVC.allImageLinks = allPictureMessages
+
+        self.navigationController?.pushViewController(mediaVC, animated: true)
+    }
     
 //    @objc func showGroup() {
 //
@@ -916,9 +917,9 @@ class ChatViewController: JSQMessagesViewController, UIImagePickerControllerDele
         leftBarButtonView.addSubview(titleLabel)
         leftBarButtonView.addSubview(subTitleLabel)
         
-//        let infoButton = UIBarButtonItem(image: UIImage(named: "info"), style: .plain, target: self, action: #selector(self.infoButtonPressed))
+        let infoButton = UIBarButtonItem(image: UIImage(named: "info"), style: .plain, target: self, action: #selector(self.infoButtonPressed))
         
-//        self.navigationItem.rightBarButtonItem = infoButton
+        self.navigationItem.rightBarButtonItem = infoButton
         
         let leftBarButtonItem = UIBarButtonItem(customView: leftBarButtonView)
         self.navigationItem.leftBarButtonItems?.append(leftBarButtonItem)
